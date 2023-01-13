@@ -130,7 +130,7 @@ class Article extends Equatable {
       views: 1123,
     ),
     Article(
-      id: '6',
+      id: '7',
       author: 'Prince I Nwanozie',
       authorImageUrl:
           'https://www.google.com/search?q=images+unsplash+com&sxsrf=ALiCzsbQPR6bPnQAPp-jq0ZNpsBuhYGNlw:1665006003925&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj7rqbbhsr6AhVFOXoKHfLuBI0Q_AUoAXoECAEQAw&biw=1034&bih=563&dpr=1#imgrc=truT82QNEllSHM',
@@ -147,7 +147,7 @@ class Article extends Equatable {
       views: 1123,
     ),
     Article(
-      id: '6',
+      id: '8',
       author: 'Prince I Nwanozie',
       authorImageUrl:
           'https://www.google.com/search?q=images+unsplash+com&sxsrf=ALiCzsbQPR6bPnQAPp-jq0ZNpsBuhYGNlw:1665006003925&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj7rqbbhsr6AhVFOXoKHfLuBI0Q_AUoAXoECAEQAw&biw=1034&bih=563&dpr=1#imgrc=truT82QNEllSHM',

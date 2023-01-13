@@ -41,8 +41,15 @@ class DiscoverScreen extends StatelessWidget {
         ),
         bottomNavigationBar: const BottomNavBar(index: 1),
         body: ListView(
-          padding: const EdgeInsets.all(20.0),
-          children: [const _DiscoverNews(), _CatergoryNews(tabs: tabs)],
+          padding: const EdgeInsets.all(
+            20.0,
+          ),
+          children: [
+            const _DiscoverNews(),
+            _CatergoryNews(
+              tabs: tabs,
+            ),
+          ],
         ),
       ),
     );
@@ -68,98 +75,104 @@ class _CatergoryNews extends StatelessWidget {
               tabs: tabs
                   .map(
                     (tab) => Tab(
-                      icon: Text(tab,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineSmall!
-                              .copyWith(fontWeight: FontWeight.bold)),
+                      icon: Text(
+                        tab,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   )
                   .toList()),
           SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: TabBarView(
-                children: tabs
-                    .map(
-                      (tab) => ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: articles.length,
-                        itemBuilder: ((
-                          dynamic,
-                          index,
-                        ) {
-                          return InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                  context, ArticleScreen.routeName,
-                                  arguments: articles[index]);
-                            },
-                            child: Row(
-                              children: [
-                                ImageContainer(
-                                  width: 100,
-                                  height: 80,
-                                  margin: const EdgeInsets.only(
-                                      top: 10, right: 10, bottom: 10),
-                                  borderRadius: 0.1,
-                                  imageUrl: articles[index].imageUrl,
+            height: MediaQuery.of(context).size.height,
+            child: TabBarView(
+              children: tabs
+                  .map(
+                    (tab) => ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: articles.length,
+                      itemBuilder: ((
+                        dynamic,
+                        index,
+                      ) {
+                        return InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              ArticleScreen.routeName,
+                              arguments: articles[index],
+                            );
+                          },
+                          child: Row(
+                            children: [
+                              ImageContainer(
+                                width: 100,
+                                height: 80,
+                                margin: const EdgeInsets.only(
+                                  top: 10,
+                                  right: 10,
+                                  bottom: 10,
                                 ),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        articles[index].title,
-                                        maxLines: 2,
-                                        overflow: TextOverflow.clip,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge!
-                                            .copyWith(
-                                                fontWeight: FontWeight.bold),
-                                      ),
-                                      const SizedBox(
-                                        height: 5,
-                                      ),
-                                      Row(
-                                        children: [
-                                          const Icon(
-                                            Icons.schedule,
-                                            size: 18,
-                                          ),
-                                          const SizedBox(width: 5),
-                                          Text(
-                                              '${DateTime.now().difference(articles[index].createdAt).inHours} hr',
-                                              style: const TextStyle(
-                                                  fontSize: 12)),
-                                          const SizedBox(width: 20),
-                                          const Icon(
-                                            Icons.visibility,
-                                            size: 18,
-                                          ),
-                                          Text(
-                                            '${articles[index].views}views',
+                                borderRadius: 0.1,
+                                imageUrl: articles[index].imageUrl,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      articles[index].title,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.clip,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge!
+                                          .copyWith(
+                                              fontWeight: FontWeight.bold),
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.schedule,
+                                          size: 18,
+                                        ),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                            '${DateTime.now().difference(articles[index].createdAt).inHours} hr',
                                             style:
-                                                const TextStyle(fontSize: 12),
-                                          ),
-                                          const SizedBox(
-                                            height: 25,
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
+                                                const TextStyle(fontSize: 12)),
+                                        const SizedBox(width: 20),
+                                        const Icon(
+                                          Icons.visibility,
+                                          size: 18,
+                                        ),
+                                        Text(
+                                          '${articles[index].views}views',
+                                          style: const TextStyle(fontSize: 12),
+                                        ),
+                                        const SizedBox(
+                                          height: 25,
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 ),
-                              ],
-                            ),
-                          );
-                        }),
-                      ),
-                    )
-                    .toList(),
-              )),
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
         ],
       ),
     );

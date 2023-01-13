@@ -20,8 +20,8 @@ class ProfileScreen extends StatelessWidget {
           elevation: 1,
           leading: IconButton(
             onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => SettingPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const SettingPage()));
             },
             icon: const Icon(
               Icons.settings,
@@ -41,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
         bottomNavigationBar: const BottomNavBar(index: 2),
         body: ListView(
           scrollDirection: Axis.vertical,
-          physics: ScrollPhysics(),
+          physics: const ScrollPhysics(),
           shrinkWrap: true,
           padding: const EdgeInsets.all(10),
           children: const [_ProfilePage()],
@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
 }
 
 class _ProfilePage extends StatefulWidget {
-  const _ProfilePage({super.key});
+  const _ProfilePage();
 
   @override
   State<_ProfilePage> createState() => _ProfilePageState();
@@ -84,22 +84,24 @@ class _ProfilePageState extends State<_ProfilePage> {
                     width: 140,
                     height: 140,
                     decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 4,
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              color: Colors.black.withOpacity(0.1),
-                              offset: const Offset(0, 10))
-                        ],
-                        shape: BoxShape.circle,
-                        image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                'https://www.google.com/imgres?imgurl=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Flockport-ny-usa-july-small-typical-american-house-small-typical-american-house-166514313.jpg&imgrefurl=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Ftypical-american-house.html&tbnid=GcsUn_h0RZixuM&vet=12ahUKEwiD94rDh9j6AhVByRoKHX5zCGwQMygFegUIARDtAQ..i&docid=A-uypSph1URPaM&w=800&h=451&q=united%20states%20house%20pictures&ved=2ahUKEwiD94rDh9j6AhVByRoKHX5zCGwQMygFegUIARDtAQ'))),
+                      border: Border.all(
+                        width: 2,
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                            spreadRadius: 2,
+                            blurRadius: 10,
+                            color: Colors.black.withOpacity(0.1),
+                            offset: const Offset(0, 10))
+                      ],
+                      shape: BoxShape.circle,
+                      image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            'https://www.google.com/imgres?imgurl=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Flockport-ny-usa-july-small-typical-american-house-small-typical-american-house-166514313.jpg&imgrefurl=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Ftypical-american-house.html&tbnid=GcsUn_h0RZixuM&vet=12ahUKEwiD94rDh9j6AhVByRoKHX5zCGwQMygFegUIARDtAQ..i&docid=A-uypSph1URPaM&w=800&h=451&q=united%20states%20house%20pictures&ved=2ahUKEwiD94rDh9j6AhVByRoKHX5zCGwQMygFegUIARDtAQ'),
+                      ),
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -111,7 +113,7 @@ class _ProfilePageState extends State<_ProfilePage> {
                         shape: BoxShape.circle,
                         color: Colors.grey,
                         border: Border.all(
-                          width: 4,
+                          width: 2,
                           color: Theme.of(context).scaffoldBackgroundColor,
                         ),
                       ),
@@ -151,7 +153,7 @@ class _ProfilePageState extends State<_ProfilePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: ElevatedButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'Save',
                         style: TextStyle(
                             fontSize: 16,
